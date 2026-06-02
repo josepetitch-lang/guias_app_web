@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Integrals</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9}
+        table {width: 100%; border-collapse: collapse; margin-top: 20px; background: white}
+        th, td {border: 1px solid #ddd; padding: 12px; text-align: left;}
+        th {background-color: #007bff; color: white}
+        tr:nth-child(even) {background-color: #f2f2f2}
+    </style>
+</head>
+<body>
+    <h1> Hola we, esta es mi primera lista de integrales, ¿pa que? nosé xd</h1>
+
+    <table>
+        <thead>
+           <tr>
+            <th>ID</th>
+            <th>Expresión</th>
+            <th>Método</th>
+            <th>Tipo</th>
+            <th>Solución</th>
+           </tr>
+        </thead>
+        <tbody>
+            {%for item in integrales %}
+            <tr>
+                <td>{{ item.id}}</td>
+                <td>{{ item.expresion}}</td>
+                <td>{{ item.metodo}}</td>
+                <td>{{ item.tipo}}</td>
+                <td>{{ item.solución}}</td> 
+            </tr>
+            {% endfor %}
+        </tbody> 
+    </table>
+
+    <h2>Agregar Nueva Integral</h2>
+    <form action="/resolver" method="POST">
+        <input type="text" name="expresion" placeholder="Ej: x**2" required>
+        <input type="text" name="metodo" placeholder="Ej: Directa" required>
+        <input type="text" name="tipo" placeholder="Ej: isi, meh, maso" required>
+        <input type="text" name="solucion" placeholder="Ej: x**3/3" required>
+        <button type=""submit>Guardar Integral</button>
+    </form>
+</body>
+</html>
